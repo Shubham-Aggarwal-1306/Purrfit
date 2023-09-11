@@ -5,8 +5,8 @@ const menuMessage = new EmbedBuilder()
     .setThumbnail('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2043&q=80')
     .addFields(
         {
-            name: 'Meow! Getting Started with Whiskers',
-            value: 'Hey there! I\'m Whiskers, the purr-fect pal for gamers who care about their health. I\'ll nudge you kindly, keep track of your activities, and help you juggle fun and fitness. Pawsome, right?'
+            name: 'Meow! Getting Started with Purrfit',
+            value: 'Hey there! I\'m Purrfit, the purr-fect pal for gamers who care about their health. I\'ll nudge you kindly, keep track of your activities, and help you juggle fun and fitness. Pawsome, right?'
         },
         {
             name: 'How to Begin',
