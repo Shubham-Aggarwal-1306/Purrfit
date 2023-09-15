@@ -1,8 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
-
 const menuMessage = new EmbedBuilder()
-    .setThumbnail('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2043&q=80')
+    .setThumbnail('https://res.cloudinary.com/dn2jk5smj/image/upload/v1694522904/purrfit/menuIcon_znqeyf.png')
     .addFields(
         {
             name: 'Meow! Getting Started with Purrfit',
