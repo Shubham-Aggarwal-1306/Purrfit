@@ -12,7 +12,7 @@ module.exports = async (client, member) => {
         let guild = member.guild;
         if (!guild) return;
 
-        await createUser({ userId: member.id, guildId: guild.id });
+        await createUser({ userId: member.id, guildId: guild.id, username: member.user.username, tag: member.user.tag, avatar: member.user.avatar, guildName: guild.name, guildIcon: guild.iconURL() });
 
         const dmChannel = await member.createDM();
 

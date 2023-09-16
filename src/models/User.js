@@ -4,11 +4,29 @@ const userSchema = new Schema({
     userId: {
         type: String,
         required: true,
-        unique: true,
+    },
+    username: {
+        type: String,
+    },
+    tag: {
+        type: String,
+    },
+    discriminator: {
+        type: String,
+    },
+    avatar: {
+        type: String,
     },
     guildId: {
         type: String,
         required: true,
+    },
+    guildName: {
+        type: String,
+        required: true,
+    },
+    guildIcon: {
+        type: String,
     },
     preferences: {
         goals: [

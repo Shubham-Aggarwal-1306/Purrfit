@@ -18,7 +18,7 @@ module.exports = {
      */
     callback: async (client, interaction) => {
         await interaction.deferReply({ephemeral: true});
-        await createUser({ userId: interaction.user.id, guildId: interaction.guild.id });
+        await createUser({ userId: interaction.user.id, guildId: interaction.guild.id, username: interaction.user.username, tag: interaction.user.discriminator, avatar: interaction.user.avatarURL(), guildName: interaction.guild.name, guildIcon: interaction.guild.iconURL() });
         const preferences = await getPreferences({ userId: interaction.user.id, guildId: interaction.guild.id });
         let goalsDesc = [];
         let frequencyDesc = '';

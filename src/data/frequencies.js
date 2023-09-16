@@ -1,5 +1,10 @@
 const frequencies = [
     {
+        label: 'Every 1 minutes',
+        value: '1',
+        description: 'Every 1 minutes',
+    },
+    {
         label: 'Every 30 minutes',
         value: '30',
         description: 'Every 30 minutes',

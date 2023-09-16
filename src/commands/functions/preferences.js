@@ -12,7 +12,7 @@ module.exports = {
     // deleted: false,
 
     callback: async (client, interaction) => {
-        await createUser({ userId: interaction.user.id, guildId: interaction.guild.id });
+        await createUser({ userId: interaction.user.id, guildId: interaction.guild.id, username: interaction.user.username, tag: interaction.user.discriminator, avatar: interaction.user.avatarURL(), guildName: interaction.guild.name, guildIcon: interaction.guild.iconURL() });
         const reply = await interaction.reply(preferencesMessage);
 
         const goalCollector = reply.createMessageComponentCollector({
