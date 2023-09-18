@@ -36,17 +36,24 @@ module.exports = {
 
         // After every 1 min send a activity to the user using the activityMessage randomly from the activities array
         setInterval(async () => {
+
             // Check if the user has stopped the notification flow
             const preferences = await getPreferences({ userId: interaction.user.id, guildId: interaction.guild.id });
             if (!preferences.start) {
                 clearInterval();
                 return;
             }
+
+            // Get a random activity from the activities array
             const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+
+            // Get the playtime of the user
             const playtime = new Date(new Date() - preferences.startedAt).toISOString().slice(11, 19);
+
             // Send the activity message to the user considering we have already sent a reply to the user
-            const message = activityMessage(randomActivity.title, randomActivity.activity, randomActivity.benefits, playtime, randomActivity.id);
+            const message = activityMessage(randomActivity.title, randomActivity.activity, randomActivity.benefits, randomActivity.url, playtime, randomActivity.id);
             await interaction.followUp(message);
+
         }, preferences.frequency * 1000 * 60);
         
     }

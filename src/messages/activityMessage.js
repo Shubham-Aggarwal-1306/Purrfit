@@ -1,8 +1,8 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-const activityMessage = (title, activity, benifits, playtime, id) => {
+const activityMessage = (title, activity, benifits, url, playtime, id) => {
     const embed = new EmbedBuilder()
-    .setThumbnail('https://res.cloudinary.com/dn2jk5smj/image/upload/v1694522903/purrfit/goalIcon_l7ctxc.png')
+    .setThumbnail(url)
     .setTitle(title)
     .addFields(
         {
