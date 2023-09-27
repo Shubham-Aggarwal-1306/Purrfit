@@ -7,7 +7,7 @@ const activitySchema = new Schema({
     },
     goal: {
         type: String,
-        enum: ['posture', 'hydration', 'eyeBreaks', 'stretching', 'movement'],
+        enum: ['posture', 'hydration', 'eyeBreaks', 'stretching', 'movement', 'mindfulBreathing'],
         required: true,
     },
     activity: {

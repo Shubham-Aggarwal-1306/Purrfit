@@ -23,6 +23,11 @@ const goals = [
         label: 'Movement',
         value: 'movement',
         description: 'Move your body and get active',
+    },
+    {
+        label: 'Mindful Breathing',
+        value: 'mindfulBreathing',
+        description: 'Take deep breaths and relax',
     }
 ]
 

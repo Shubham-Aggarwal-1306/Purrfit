@@ -1,3 +1,4 @@
+const goals = require('../data/goals');
 const User = require('../models/User');
 
 exports.createUser = async (data) => {
@@ -21,6 +22,17 @@ exports.createUser = async (data) => {
             guildName,
             guildIcon
         });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.getUser = async (data) => {
+    try {
+        const { userId, guildId } = data;
+        const user = await User.findOne({ userId, guildId });
+        if (!user) return;
+        return user;
     } catch (err) {
         console.log(err);
     }
@@ -101,7 +113,7 @@ exports.stop = async (data) => {
 exports.addActivity = async (data) => {
     try {
         const { userId, guildId, activityId } = data;
-        
+
         const user = await User.findOne({ userId, guildId });
 
         if (!user) return;
@@ -112,6 +124,49 @@ exports.addActivity = async (data) => {
 
         await user.save();
 
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.getHistory = async (data) => {
+    try {
+        const { userId, guildId } = data;
+
+        const user = await User.findOne({ userId, guildId });
+        if (!user) return;
+        return user.activityHistory;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.getActivityCountByGoal = async (data) => {
+    try {
+        const { userId, guildId } = data;
+
+        const user = await User.findOne({ userId, guildId }).populate('activityHistory.activity');
+        if (!user) return;
+
+        const history = user.activityHistory || [];
+        let noOfActivitiesByGoals = [];
+        goals.forEach((goal) => {
+            let count = 0;
+            history.forEach((activity) => {
+                if (activity.activity.goal === goal.value) {
+                    count++;
+                }
+            });
+            if (count > 0) {
+                noOfActivitiesByGoals.push({
+                    goal: goal.label,
+                    count,
+                });
+            }
+        });
+        console.log(noOfActivitiesByGoals);
+
+        return noOfActivitiesByGoals;
     } catch (err) {
         console.log(err);
     }
